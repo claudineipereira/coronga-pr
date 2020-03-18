@@ -8,7 +8,7 @@ font = {
     'family': 'Liberation Sans',
     'serif': 'FreeSerif',
     'weight': 'bold',
-    'size': 10
+    'size': 12
 }
 
 title_font = {
