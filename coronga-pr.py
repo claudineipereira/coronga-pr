@@ -30,6 +30,17 @@ plt.rcParams['axes.titlesize'] = 14
 plt.rcParams['xtick.labelsize'] = 12
 plt.rcParams['ytick.labelsize'] = 12
 
+
+def annotation(x, y):
+    for a, b in zip(x, y):
+        label = b
+        plt.annotate(label,
+                     (a, b),
+                     textcoords="offset points",
+                     xytext=(0, 10),
+                     ha='center')
+
+
 df = pd.read_csv('data/coronga-pr.csv')
 max_number = df['Suspeitos'].max()
 
@@ -38,24 +49,12 @@ y1 = df['Suspeitos'].values
 y2 = df['Confirmados'].values
 
 fig, ax = plt.subplots()
+
 ax.plot(x, y1, marker='o', label='Suspeitos')
+annotation(x, y1)
+
 ax.plot(x, y2, marker='o', label='Confirmados')
-
-for a, b in zip(x, y1):
-    label = b
-    plt.annotate(label,
-                 (a, b), 
-                 textcoords="offset points",
-                 xytext=(0,10),
-                 ha='center')
-
-for a, b in zip(x, y2):
-    label = b
-    plt.annotate(label,
-                 (a, b), 
-                 textcoords="offset points",
-                 xytext=(0,10),
-                 ha='center')
+annotation(x, y2)
 
 plt.title('Evolução do Coronavírus no Paraná', **title_font)
 plt.legend()
