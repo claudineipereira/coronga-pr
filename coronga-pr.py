@@ -33,7 +33,7 @@ plt.rcParams['ytick.labelsize'] = 10
 
 def annotation(x, y):
     for a, b in zip(x, y):
-        label = b
+        label = '' if b == 0 else b
         plt.annotate(label,
                      (a, b),
                      textcoords="offset points",
@@ -60,7 +60,7 @@ plt.title('Evolução do Coronavírus no Paraná', **title_font)
 plt.legend()
 plt.xlabel('Data')
 plt.ylabel('Número de casos')
-plt.yticks(np.arange(0, max_number, 200))
+plt.yticks(np.arange(0, max_number, 500))
 plt.gca().spines['right'].set_color('none')
 plt.gca().spines['top'].set_color('none')
 plt.gca().xaxis.grid(True)
