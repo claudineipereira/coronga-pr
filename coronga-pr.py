@@ -8,7 +8,7 @@ font = {
     'family': 'Liberation Sans',
     'serif': 'FreeSerif',
     'weight': 'bold',
-    'size': 10
+    'size': 12
 }
 
 title_font = {
@@ -24,11 +24,11 @@ title_font = {
 plt.style.use('seaborn-deep')
 plt.rc('font', **font)
 plt.rc('figure', figsize=(11.69, 8.27))
-plt.rcParams['axes.labelsize'] = 12
+plt.rcParams['axes.labelsize'] = 14
 plt.rcParams['axes.labelweight'] = 'bold'
-plt.rcParams['axes.titlesize'] = 12
-plt.rcParams['xtick.labelsize'] = 10
-plt.rcParams['ytick.labelsize'] = 10
+plt.rcParams['axes.titlesize'] = 14
+plt.rcParams['xtick.labelsize'] = 12
+plt.rcParams['ytick.labelsize'] = 12
 
 
 def annotation(x, y):
@@ -37,30 +37,30 @@ def annotation(x, y):
         plt.annotate(label,
                      (a, b),
                      textcoords="offset points",
-                     xytext=(0, 1),
+                     xytext=(0, 10),
                      ha='center')
 
 
 df = pd.read_csv('data/coronga-pr.csv')
-max_number = df['Suspeitos'].max()
+max_number = df['Confirmados'].max()
 
 x = df['Data'].values
-y1 = df['Suspeitos'].values
+# y1 = df['Suspeitos'].values
 y2 = df['Confirmados'].values
 
 fig, ax = plt.subplots()
 
-ax.plot(x, y1, label='Suspeitos')
-annotation(x, y1)
+# ax.plot(x, y1, label='Suspeitos')
+# annotation(x, y1)
 
-ax.plot(x, y2, label='Confirmados')
+ax.plot(x, y2, marker='o', label='Confirmados')
 annotation(x, y2)
 
 plt.title('Evolução do Coronavírus no Paraná', **title_font)
-plt.legend()
+plt.legend(loc='upper left')
 plt.xlabel('Data')
 plt.ylabel('Número de casos')
-plt.yticks(np.arange(0, max_number, 500))
+plt.yticks(np.arange(0, max_number, 20))
 plt.gca().spines['right'].set_color('none')
 plt.gca().spines['top'].set_color('none')
 plt.gca().xaxis.grid(True)
