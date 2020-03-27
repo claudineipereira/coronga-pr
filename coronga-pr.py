@@ -45,15 +45,15 @@ df = pd.read_csv('data/coronga-pr.csv')
 max_number = df['Confirmados'].max()
 
 x = df['Data'].values
-# y1 = df['Suspeitos'].values
-y2 = df['Confirmados'].values
+y1 = df['Confirmados'].values
+y2 = df['Óbitos'].values
 
 fig, ax = plt.subplots()
 
-# ax.plot(x, y1, label='Suspeitos')
-# annotation(x, y1)
+ax.plot(x, y1, marker='o', label='Confirmados')
+annotation(x, y1)
 
-ax.plot(x, y2, marker='o', label='Confirmados')
+ax.bar(x, y2, color='red', label='Óbitos')
 annotation(x, y2)
 
 plt.title('Evolução do Coronavírus no Paraná', **title_font)
