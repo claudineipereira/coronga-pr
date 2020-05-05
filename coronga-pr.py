@@ -8,10 +8,10 @@ from datetime import date
 today = date.today().strftime('%d/%m')
 
 ir2019 = 2328
-ir_today = 2182
+ir_today = 2265
 
 p2019 = 3287
-p_today = 3350
+p_today = 3464
 
 font = {
     'family': 'Liberation Sans',
