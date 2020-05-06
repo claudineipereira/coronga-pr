@@ -8,16 +8,16 @@ from datetime import date
 today = date.today().strftime('%d/%m')
 
 ir2019 = 2328
-ir_today = 2265
+ir_today = 2298
 
 p2019 = 3287
-p_today = 3464
+p_today = 3502
 
 font = {
     'family': 'Liberation Sans',
     'serif': 'FreeSerif',
     # 'weight': 'bold',
-    'size': 10
+    'size': 9
 }
 
 title_font = {
